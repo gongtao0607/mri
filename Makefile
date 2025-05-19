@@ -236,6 +236,9 @@ $(eval $(call armv7m_module,STM32F429XX,devices/stm32f429xx))
 # STM32F411XX device sources.
 $(eval $(call armv7m_module,STM32F411XX,devices/stm32f411xx))
 
+# STM32F722XX device sources.
+$(eval $(call armv7m_module,STM32F722XX,devices/stm32f722xx))
+
 
 # ** BOARDS **
 # mbed 1768 board
@@ -270,6 +273,11 @@ $(eval $(call armv7m_module,STM32F411_BLACKPILL,boards/stm32f411-blackpill))
 $(eval $(call make_board_library,STM32F411CE_BLACKPILL,libmri_stm32f411-blackpill.a,\
                                   CORE_FPU SEMIHOST_FPU ARMV7M_FPU NATIVE_MEM_FPU STM32F411XX_FPU STM32F411_BLACKPILL_FPU,\
                                   cmsis/STM32F411xx))
+
+$(eval $(call armv7m_module,STM32F722_ROTORFLIGHT,boards/stm32f722-rotorflight))
+$(eval $(call make_board_library,STM32F722RE_ROTORFLIGHT,libmri_stm32f722-rotorflight.a,\
+                                  CORE_FPU_HARD SEMIHOST_FPU_HARD ARMV7M_FPU_HARD NATIVE_MEM_FPU_HARD STM32F722XX_FPU_HARD STM32F722_ROTORFLIGHT_FPU_HARD,\
+                                  cmsis/STM32F722xx))
 
 # All boards to be built for ARM target.
 ARM_BOARDS : $(ARM_BOARD_LIBS)
